@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Inquiry - RentinPLK</title>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; padding: 20px; background-color: #f4f4f4; }
+        form { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); width: 100%; max-width: 400px; }
+        h2 { color: #333; margin-top: 0; }
+        label { display: block; margin-top: 15px; font-weight: bold; }
+        input, select { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; background-color: #25D366; color: white; border: none; border-radius: 4px; margin-top: 20px; cursor: pointer; font-size: 16px; font-weight: bold; }
+        button:hover { background-color: #128C7E; }
+    </style>
+</head>
+<body>
+
+<form id="inquiryForm">
+    <h2>Interest Form</h2>
+    
+    <label for="tenantName">Full Name</label>
+    <input type="text" id="tenantName" placeholder="Enter your name" required>
+
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" placeholder="e.g. 071 234 5678" required>
+
+    <label for="room">Which room are you interested in?</label>
+    <select id="room" required>
+        <option value="">Select a room...</option>
+        <option value="A029 Livy - Standard">A029 Livy - Standard</option>
+        <option value="A029 Livy - Deluxe">A029 Livy - Deluxe</option>
+        <option value="A029 Livy - Studio">A029 Livy - Studio</option>
+    </select>
+
+    <button type="submit">Contact Landlord via WhatsApp</button>
+</form>
+
+<script>
+    document.getElementById('inquiryForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Get Form Values
+        const name = document.getElementById('tenantName').value;
+        const phone = document.getElementById('phone').value;
+        const room = document.getElementById('room').value;
+
+        // Construct the WhatsApp Message
+        // Format: Hi RentinPLK, I'm [Name] ([Phone]). I'm interested in property [Room]. I will Contact the Landlord on 27653014838
+        const baseMsg = `Hi RentinPLK, I'm ${name} (${phone}). I'm interested in property ${room}. I will Contact the Landlord on 27653014838`;
+        
+        // Encode for URL
+        const encodedMsg = encodeURIComponent(baseMsg);
+        
+        // Redirect to WhatsApp
+        window.location.href = `https://wa.me/27814166359?text=${encodedMsg}`;
+    });
+</script>
+
+</body>
+</html>
