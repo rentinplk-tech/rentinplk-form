@@ -38,7 +38,7 @@ export function ProgressRing({
 
   const animatedProps = useAnimatedProps(() => ({
     strokeDashoffset: circumference * (1 - animatedProgress.value),
-  }));
+  })) as any;
 
   return (
     <View style={[styles.container, { width: size, height: size }]}>
