@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "Command Centre",
+    "slug": "command-centre",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#042C53"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.commandcentre.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#042C53"
+      },
+      "package": "com.commandcentre.app"
+    },
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}
